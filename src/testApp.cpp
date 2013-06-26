@@ -9,21 +9,34 @@ void testApp::setup(){
   ofNoFill();
   width = ofGetWidth();
   height = ofGetHeight();
+  midiIn.listPorts();
+  midiIn.openPort(0);
+  midiIn.ignoreTypes(false, false, false);
+  midiIn.addListener(this);
+  midiIn.setVerbose(false);
   for(int i = 0; i < numFlowers; i++) {
     Flower f = Flower(width/2, height/2, 6, 300.0 - 50*i, 75.0);
     flowers[i] = f;
   }
+    color = 255;
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
+    
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
- for(int i = 0; i < numFlowers; i++) {
-   flowers[i].render(stepSize);
-  }
+    if(counter % 24 == 0) {
+        ofSetColor(0, 0, 255);
+    }
+    else {
+        ofSetColor(255,255,255);
+    }
+    for(int i = 0; i < numFlowers; i++) {
+        flowers[i].render(stepSize);
+    }
 }
 
 //--------------------------------------------------------------
@@ -69,4 +82,22 @@ void testApp::gotMessage(ofMessage msg){
 //--------------------------------------------------------------
 void testApp::dragEvent(ofDragInfo dragInfo){ 
 
+}
+
+//--------------------------------------------------------------
+void testApp::exit(){ 
+  midiIn.closePort();
+  midiIn.removeListener(this);
+}
+
+//--------------------------------------------------------------
+void testApp::newMidiMessage(ofxMidiMessage& msg) {
+  // make a copy of the latest message
+  midiMessage = msg;
+  if(midiMessage.bytes[0] == 0xF8) {
+    counter++;
+  }
+    if(counter % 24 == 0) {
+        ofLog() << "Beat!" << counter;
+    }
 }

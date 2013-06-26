@@ -2,8 +2,9 @@
 
 #include "ofMain.h"
 #include "flower.h"
+#include "ofxMidi.h"
 
-class testApp : public ofBaseApp{
+class testApp : public ofBaseApp, public ofxMidiListener {
  public:
   void setup();
   void update();
@@ -18,10 +19,16 @@ class testApp : public ofBaseApp{
   void windowResized(int w, int h);
   void dragEvent(ofDragInfo dragInfo);
   void gotMessage(ofMessage msg);
+  void exit();
+  void newMidiMessage(ofxMidiMessage& msg);
  
  private:
-  static const int numFlowers = 6;
+  static const int numFlowers = 8;
   Flower flowers[numFlowers];
   float width, height;
-  static const float stepSize = 16;	
+  static const float stepSize = 16;
+  ofxMidiIn midiIn;
+  ofxMidiMessage midiMessage;
+  int counter, beatCounter;
+    float color;
 };
