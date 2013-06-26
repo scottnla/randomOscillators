@@ -20,15 +20,27 @@ class Flower {
     }
   };
 
-  void render(float stepSize) {
-    float dAngle = TWO_PI / (noPetals * noPoints);
-    ofBeginShape();
-    for(int i = 0; i < noPetals*noPoints+3; i++) {
-      float radius = osc[i % noPoints].next(stepSize);
-      ofCurveVertex(radius*sin(dAngle*i) + position.x, radius*cos(dAngle*i) + position.y);
-    }
-    ofEndShape();
-  };
+    void renderRadial(float stepSize) {
+        float dAngle = TWO_PI / (noPetals * noPoints);
+        ofBeginShape();
+        for(int i = 0; i < noPetals*noPoints+3; i++) {
+            float radius = osc[i % noPoints].next(stepSize);
+            ofCurveVertex(radius*sin(dAngle*i) + position.x, radius*cos(dAngle*i) + position.y);
+        }
+        ofEndShape();
+    };
+    
+    void renderRect(float stepSize, float width, float height) {
+        float dAngle = TWO_PI / (noPetals * noPoints);
+        ofBeginShape();
+        for(int i = 0; i < noPetals*noPoints+3; i++) {
+            float radius = osc[i % noPoints].next(stepSize);
+            float ex = ofMap(dAngle*i, 0, TWO_PI, -100, width);
+            float why = ofMap(radius, 0, width/2, height/4, height);
+            ofCurveVertex(ex, why);
+        }
+        ofEndShape();
+    };
 
  protected:
   ofVec2f position;

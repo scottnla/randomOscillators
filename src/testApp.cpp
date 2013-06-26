@@ -28,14 +28,9 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    if(counter % 24 == 0) {
-        ofSetColor(0, 0, 255);
-    }
-    else {
-        ofSetColor(255,255,255);
-    }
+    ofSetColor(0,255,0);
     for(int i = 0; i < numFlowers; i++) {
-        flowers[i].render(stepSize);
+        flowers[i].renderRect(stepSize, width, height);
     }
 }
 
