@@ -30,7 +30,8 @@ void testApp::update(){
 void testApp::draw(){
     ofSetColor(0,255,0);
     for(int i = 0; i < numFlowers; i++) {
-        flowers[i].renderRect(stepSize, width, height);
+      //flowers[i].renderRect(stepSize, width, height);
+      flowers[i].renderRadial(stepSize);
     }
 }
 

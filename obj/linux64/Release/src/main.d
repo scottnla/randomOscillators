@@ -257,7 +257,17 @@ obj/linux64/Release/src/main.o: src/main.cpp \
  ../../../libs/openFrameworks/video/ofGstVideoPlayer.h \
  ../../../libs/openFrameworks/3d/ofCamera.h \
  ../../../libs/openFrameworks/3d/ofEasyCam.h src/testApp.h src/flower.h \
- src/oscillator.h
+ src/oscillator.h ../../../addons/ofxMidi/src/ofxMidi.h \
+ ../../../addons/ofxMidi/src/ofxMidiIn.h \
+ ../../../addons/ofxMidi/src/ofxBaseMidi.h \
+ ../../../addons/ofxMidi/src/ofxMidiConstants.h \
+ ../../../addons/ofxMidi/src/ofxMidiMessage.h \
+ ../../../addons/ofxMidi/src/ofxMidiTypes.h \
+ ../../../addons/ofxMidi/src/desktop/ofxRtMidiIn.h \
+ ../../../addons/ofxMidi/src/desktop/rtmidi/RtMidi.h \
+ ../../../addons/ofxMidi/src/desktop/rtmidi/RtError.h \
+ ../../../addons/ofxMidi/src/ofxMidiOut.h \
+ ../../../addons/ofxMidi/src/desktop/ofxRtMidiOut.h
 
 ../../../libs/openFrameworks/ofMain.h:
 
@@ -812,3 +822,25 @@ src/testApp.h:
 src/flower.h:
 
 src/oscillator.h:
+
+../../../addons/ofxMidi/src/ofxMidi.h:
+
+../../../addons/ofxMidi/src/ofxMidiIn.h:
+
+../../../addons/ofxMidi/src/ofxBaseMidi.h:
+
+../../../addons/ofxMidi/src/ofxMidiConstants.h:
+
+../../../addons/ofxMidi/src/ofxMidiMessage.h:
+
+../../../addons/ofxMidi/src/ofxMidiTypes.h:
+
+../../../addons/ofxMidi/src/desktop/ofxRtMidiIn.h:
+
+../../../addons/ofxMidi/src/desktop/rtmidi/RtMidi.h:
+
+../../../addons/ofxMidi/src/desktop/rtmidi/RtError.h:
+
+../../../addons/ofxMidi/src/ofxMidiOut.h:
+
+../../../addons/ofxMidi/src/desktop/ofxRtMidiOut.h:
